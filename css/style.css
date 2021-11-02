@@ -5,6 +5,13 @@
    font-style: normal;
    }
 
+   @font-face {
+      font-family: GothamPro;
+      src: url(../fonts/GothamPro-Bold.ttf);
+      font-weight: 900;
+      font-style: normal;
+      }   
+
 * {
 	margin: 0;
 	padding: 0;
@@ -28,8 +35,23 @@ button{
 }
 /* Шапка сайта */
 .header {
+   position: relative;
+   z-index: 0;
    background-image: url(../images/header.jpg);
    background-size:cover;
+   background-position: 0 -15rem;
+   background-repeat: no-repeat;
+}
+.header::after {
+	content: "";
+	background: linear-gradient(to left, #000000 0%, #00000085 50%, #000000 100%);
+	opacity: 1;
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 }
 
 .header_box{
@@ -42,6 +64,10 @@ button{
 .header_boxmenu{
    display: flex;
    justify-content: space-between;
+}
+
+.logo {
+   margin-top: 2rem;
 }
 /* верхняя часть меню */
 .up_box_menu{
@@ -78,6 +104,7 @@ button{
    padding-top: 1.2rem;
    display: flex;
    text-transform: uppercase;
+   justify-content: space-between;
    align-items:center;
    font-size: 1.8rem;
    font-weight: bold;
@@ -87,9 +114,8 @@ button{
 .header_menu {
    display: flex;
 }
-
 .header_menu_item:nth-child(n+2){
-   margin-left: 5rem;
+   margin-left: 4rem;
 }
 /* Кнопка  заявки */
 .button_application {
@@ -109,11 +135,137 @@ button{
    box-shadow: 0rem 0rem 0.5rem 0.1rem #f6f9fc;
 }
 
+/* Контент шапки */
 
+.header_main {
+   display: flex;
+   justify-content: space-between;
+   align-items:center;
+   margin: 12.4rem 0;
+}
+/* Заголовки */
+.main_box_title{
+   max-width: 70rem;
+}
+
+.main_box_title>.title{
+   font-size: 8rem;
+   font-weight: bold;
+   text-transform: uppercase;
+}
+
+.main_box_title>.subtitle {
+   text-transform: uppercase;
+   max-width: 51rem;
+   padding: 2rem 0;
+   font-size: 4rem;
+   font-weight: 700;
+}
+
+.yelow_bord {
+   border-bottom: 0.5rem solid #feda2f;
+   padding-bottom: ;
+}
+
+/* Форма записи  в шапке*/
+.header_recording{  
+   background: rgba(0, 0, 0, 0.7);
+   border-radius: 1rem;
+}
+
+.recording_container{
+   opacity: 1;
+   padding: 6rem 5rem;
+}
+.form_title {
+   max-width: 31rem;
+   font-size: 4rem;
+   font-weight: 900;
+   text-transform: uppercase;
+}
+.recording_form {
+   width: 42rem;   
+   display: flex;
+   flex-direction: column;
+}
+
+.form_margin{
+   margin-top: 4rem;
+}
+
+.recording_input{
+   color: white;
+   padding: 0.8rem 0;
+   background: none;
+   font-size: 2rem;
+   border: none;
+   border-bottom: 0.2rem solid rgba(255, 255, 255, 0.5);
+}
+.recording_form>input::-moz-placeholder { color: #fff; }
+.recording_form>input::-webkit-input-placeholder { color: #fff; }
+/* стилизация chrckbox */
+.check_box {
+   display: flex;
+   font-size: 1.4rem;
+}
+
+.fake::before {
+   content: "";
+   display: inline-block;
+   vertical-align: middle;
+   margin-right: 0.8rem;
+   width: 2rem;
+   height: 2rem;
+   border-radius: 0.5rem;
+   background-image: url(../images/empty-checkbox.png);
+   background-color: white;
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-size: 2rem;
+}
+
+.checkbox:checked ~ .fake::before {
+   background-image: url(../images/checkbox.png)
+   }
+
+.checkbox {
+   position: absolute;
+   clip: rect(1px, 1px, 1px, 1px);
+   height: 1px;
+   width: 1px;
+}
+
+.checkbox_text {
+   max-width: 30rem;
+   margin-left: 1rem;
+}
+
+.agreement {
+  cursor: pointer;
+   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  
+}
+
+/* кнопка записи на занятие */
+.recording_button{
+   font-size: 2.2rem;
+   font-weight: 700;
+   text-transform: uppercase;
+   border: none;
+   background-color: #feda2f;
+   letter-spacing: 0.2rem;
+   padding: 2.9rem 3rem 2.5rem;
+   border-radius: 0.5rem;
+}
 /* медиазапросы */
-@media (min-width: 1200px) {
+@media (min-width: 1500px) {
 	html {
 		font-size: 62.5%;
 	}
+}
 
-
+@media (min-width: 1200px) and (max-width: 1499px) {
+   html {
+      font-size: 48%;
+   }
+}
